@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import Product from '../Product/Product';
 
-const Products = () => {
+const Products = ({ handelButtonClickData }) => {
 
     const [products, setProducts] = useState([]);
 
@@ -18,6 +18,7 @@ const Products = () => {
                 products.map(product => <Product
                     key={product.id} // Must be unique for each product and must be added otherwise an error will occure.
                     product={product}
+                    handelButtonClickData={handelButtonClickData} // Passing the function as a prop to Product component.
                 />)
             }
         </div>
