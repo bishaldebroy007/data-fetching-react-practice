@@ -2,14 +2,21 @@
 // import viteLogo from '/vite.svg'
 import React from 'react'
 import './App.css'
+import { useState } from 'react'
 import Placement from './components/Placement/Placement'
 import Products from './components/Products/Products'
+import SpecialButton from './components/SpecialButton/SpecialButton'
 
 function App() {
+  const [cart, setCart] = useState([]);
+
 
   const handelButtonClickData = (props) => {
-    console.log("Got the data:", props);
+    const newCart = [...cart, props];
+    setCart(newCart);
+    alert(`You have added ${props.name} to the cart!`);
   };
+  // Now the cart will hold all the data, which can be sent.
 
   return (
     <div className="text-center">
@@ -17,9 +24,9 @@ function App() {
 
       <div className='flex gap-x-10'>
         <Products handelButtonClickData={handelButtonClickData} />
-        <Placement />
+        <Placement cart={cart} />
       </div>
-
+      <SpecialButton className="m-9" />
     </div>
   )
 }
