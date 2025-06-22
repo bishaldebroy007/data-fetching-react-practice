@@ -16,7 +16,7 @@ const SpecialButton = () => {
                 Click here to Change
             </button>
             <div>
-                <p className='text-2xl font-bold'>{isSpecial ? 'I am a bad person' : 'I am a good person'}</p>
+                <p className='text-2xl font-bold'>I am a{isSpecial ? ' good ' : ' bad '}person</p>
             </div>
         </div>
     )
